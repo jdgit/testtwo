@@ -1,0 +1,14 @@
+#!/bin/sh
+
+JSONORDER='/usr/bin/json-order'
+
+TEMPLATE1="/tmp/"`echo "$1" | sed 's+/+_+g'`".XXXXXXXX"
+TEMPLATE2="/tmp/"`echo "$2" | sed 's+/+_+g'`".XXXXXXXX"
+
+FILE1=`mktemp "${TEMPLATE1}"`
+FILE2=`mktemp "${TEMPLATE2}"`
+
+"$JSONORDER" -- "$1" > "$FILE1"
+"$JSONORDER" -- "$2" > "$FILE2"
+
+vimdiff "$FILE1" "$FILE2"
