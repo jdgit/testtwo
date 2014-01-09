@@ -1,2 +1,3 @@
 # testtwo #
-how do I highlight a word in here ?
+how do I **highlight** a word in here ?
+ok, found it.
